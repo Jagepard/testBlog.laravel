@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\MaterialsController as AdminMaterialsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog\MaterialsController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +16,12 @@ use App\Http\Controllers\Blog\MaterialsController;
 |
 */
 
-Route::get('/',[MaterialsController::class, 'index'])->name('home');
+Route::get('/',[MaterialsController::class, 'index'])
+    ->name('Materials::list');
+Route::get('/material/{slug}',[MaterialsController::class, 'item'])
+    ->name('Materials::item');
+
+
+Route::get('/admin',[AdminMaterialsController::class, 'index'])
+    ->name('Materials::list');
+
