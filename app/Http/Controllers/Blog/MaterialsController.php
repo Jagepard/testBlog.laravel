@@ -2,13 +2,26 @@
 
 namespace App\Http\Controllers\Blog;
 
+use App\Models\Materials;
 use Illuminate\Http\Request;
+use App\Http\Tasks\GetIdFromSlug;
 use App\Http\Controllers\Controller;
 
 class MaterialsController extends Controller
 {
     public function index()
     {
-        dd(__METHOD__);
+        return view('blog.index', [
+            'materials' => Materials::where('status', 1)->paginate(15)
+        ]);
+    }
+
+    public function item($slug)
+    {
+        $id = (new GetIdFromSlug())->run($slug);
+
+        return view('blog.item', [
+            'material' => Materials::findOrFail($id)
+        ]);
     }
 }
