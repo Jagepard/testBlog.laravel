@@ -15,7 +15,10 @@
           <a class="link-underline link-underline-opacity-0" href="{{ url('/') }}/admin"><h1>Dashboard</h1></a>
         </div>
         <div class="col border">
-{{--  --}}
+            @auth
+              <p>Вы вошли как: <i>{{ Auth::user()->email }}</i></p>
+              <a href="{{ route('logout')}}">Выйти</a>
+            @endauth
         </div>
       </div>
     <hr>

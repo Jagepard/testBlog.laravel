@@ -19,8 +19,12 @@ use App\Http\Controllers\Admin\MaterialsController as AdminMaterialsController;
 require __DIR__ . '/auth.php';
 
 Route::get('/',[MaterialsController::class, 'index'])->name('materials.list');
-Route::get('/material/{slug}', [MaterialsController::class, 'item'])->name('materials.item');
+Route::get('/material/{slug}', [MaterialsController::class, 'item'])->name('material.item');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/', [AdminMaterialsController::class, 'index'])->name('materials.list');
+    Route::get('/material/add', [AdminMaterialsController::class, 'add'])->name('material.add');
+    Route::post('/material/create', [AdminMaterialsController::class, 'createOrUpdate'])->name('material.create');
+    Route::get('/material/edit/{id}', [AdminMaterialsController::class, 'edit'])->name('material.edit');
+    Route::post('/material/update/{id}', [AdminMaterialsController::class, 'createOrUpdate'])->name('material.update');
 });
