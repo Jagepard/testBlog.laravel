@@ -13,5 +13,6 @@ class Materials extends Model
         'title',
         'slug',
         'text',
+        'image',
     ];
 }

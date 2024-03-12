@@ -12,7 +12,7 @@
     <div class="card">
     <a href="{{ url('/') }}/material/{{ $material->id }}_{{ $material->slug }}">
     @if(!empty($material->image))
-    <img width="350" src="{{ url('/') }}/uploads/{{ $material->image }}" class="card-img-top" alt="{{ $material->title }}">
+    <img width="350" src="{{ url('/') }}/storage/images/{{ $material->image }}" class="card-img-top" alt="{{ $material->title }}">
     @endif
     </a>
       <div class="card-body">
