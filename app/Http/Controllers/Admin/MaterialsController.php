@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Materials;
 use Illuminate\Http\Request;
-use App\Http\Tasks\SetMaterial;
 use App\Http\Controllers\Controller;
+use App\Http\Actions\Admin\SetMaterial;
+use App\Http\Actions\Admin\RemoveImages;
+use App\Http\Actions\Admin\DeleteMaterial;
 
 class MaterialsController extends Controller
 {
@@ -28,14 +30,25 @@ class MaterialsController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        (new DeleteMaterial)->run($id);
+
+        return redirect()->route("admin.materials.list");
+    }
+
     public function createOrUpdate(Request $request, $id = null)
     {
-        $validated = $request->validate([
-            'title' => 'required|min:6',
-        ]);
-
-        (new SetMaterial)->run($validated, $id);
+        (new SetMaterial)->run($request, $id);
 
         return redirect()->route("admin.materials.list")->withSuccess('You have signed-in');
+    }
+
+    public function delimg($id)
+    {
+        (new RemoveImages)->run(Materials::findOrFail($id)->image);
+        Materials::updateOrCreate(['id' => $id], ['image' => '']);
+
+        return redirect()->route("admin.materials.list");
     }
 }

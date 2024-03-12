@@ -27,4 +27,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::post('/material/create', [AdminMaterialsController::class, 'createOrUpdate'])->name('material.create');
     Route::get('/material/edit/{id}', [AdminMaterialsController::class, 'edit'])->name('material.edit');
     Route::post('/material/update/{id}', [AdminMaterialsController::class, 'createOrUpdate'])->name('material.update');
+    Route::get('/material/delete/{id}', [AdminMaterialsController::class, 'delete'])->name('material.delete');
+    Route::get('/material/delimg/{id}', [AdminMaterialsController::class, 'delimg'])->name('material.delimg');
 });

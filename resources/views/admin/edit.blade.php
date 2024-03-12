@@ -4,17 +4,16 @@
 
 <br>
 <?php if (!empty($material['image'])): ?>
-  <img src="{{ url('/') }}/images/{{ $material->image }}" height="250">
+  <img src="{{ url('/') }}/storage/images/{{ $material->image }}" height="250">
   <a href="{{ url('/') }}/admin/material/delimg/{{ $material->id }}"><button type="button" class="btn btn-danger">delete</button></a>
 <?php endif; ?>
 <form action="{{ url('/') }}/admin/material/update/{{ $material->id }}" method="post" enctype="multipart/form-data">
 @csrf
-
 <input type='hidden' name='image' value='{{ $material->image }}'>
 <br>
   <div class="mb-3">
     <label for="file" class="form-label">Фото</label>
-    <input type="file" name="file" id="file">
+    <input type="file" name="upload" id="file">
   </div>
   <div class="mb-3">
     <label for="title" class="form-label">Заголовок</label>

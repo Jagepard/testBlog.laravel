@@ -7,7 +7,7 @@
 @csrf
 <div class="mb-3">
     <label for="file" class="form-label">Фото</label>
-    <input type="file" name="file" id="file">
+    <input type="file" name="upload" id="file">
   </div>
   <div class="mb-3">
     <label for="title" class="form-label">Заголовок</label>
