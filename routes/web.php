@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\MaterialsController as AdminMaterialsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Blog\MaterialsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\MaterialsController as AdminMaterialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,11 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/',[MaterialsController::class, 'index'])
-    ->name('Materials::list');
-Route::get('/material/{slug}',[MaterialsController::class, 'item'])
-    ->name('Materials::item');
+require __DIR__ . '/auth.php';
 
+Route::get('/',[MaterialsController::class, 'index'])->name('materials.list');
+Route::get('/material/{slug}', [MaterialsController::class, 'item'])->name('materials.item');
 
-Route::get('/admin',[AdminMaterialsController::class, 'index'])
-    ->name('Materials::list');
-
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::get('/', [AdminMaterialsController::class, 'index'])->name('materials.list');
+});
