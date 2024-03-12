@@ -18,7 +18,7 @@ class MaterialsController extends Controller
 
     public function item($slug)
     {
-        $id = (new GetIdFromSlug())->run($slug);
+        $id = (new GetIdFromSlug)->run($slug);
 
         return view('blog.item', [
             'material' => Materials::findOrFail($id)
