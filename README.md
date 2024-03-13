@@ -18,9 +18,6 @@ cd testBlog.laravel
 ```
 composer install
 ```
-```
-php artisan key:generate
-```
 
 Create a database, for example: ```testBlog_laravel```
 Specify connection parameters in the configuration file: ```.env```
@@ -44,6 +41,9 @@ php artisan db:seed
 Launch the built-in server:
 ```
 php artisan serve
+```
+```
+php artisan key:generate
 ```
 
 Admin panel:
