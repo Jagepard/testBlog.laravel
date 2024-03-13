@@ -12,6 +12,9 @@
 ```
 git clone git@github.com:Jagepard/testBlog.laravel.git
 ```
+```
+composer install
+```
 
 Create a database, for example: ```testBlog_laravel```
 Specify connection parameters in the configuration file: ```.env```
