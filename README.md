@@ -38,12 +38,13 @@ Seeding user data:
 ```
 php artisan db:seed
 ```
+Generate application key
+```
+php artisan key:generate
+```
 Launch the built-in server:
 ```
 php artisan serve
-```
-```
-php artisan key:generate
 ```
 
 Admin panel:
