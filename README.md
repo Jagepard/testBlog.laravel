@@ -15,9 +15,11 @@ git clone git@github.com:Jagepard/testBlog.laravel.git
 ```
 cd testBlog.laravel
 ```
-
 ```
 composer install
+```
+```
+php artisan key:generate
 ```
 
 Create a database, for example: ```testBlog_laravel```
