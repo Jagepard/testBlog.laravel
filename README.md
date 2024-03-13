@@ -13,6 +13,10 @@
 git clone git@github.com:Jagepard/testBlog.laravel.git
 ```
 ```
+cd testBlog.laravel
+```
+
+```
 composer install
 ```
 
@@ -38,4 +42,14 @@ php artisan db:seed
 Launch the built-in server:
 ```
 php artisan serve
+```
+
+Admin panel:
+```
+http://127.0.0.1:8000/admin
+```
+User identity:
+```
+Login: admin@admin.com
+Password: password
 ```
