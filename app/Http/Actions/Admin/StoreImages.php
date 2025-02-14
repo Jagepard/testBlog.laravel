@@ -11,7 +11,7 @@ class StoreImages
         $GDimage = (new CreateGDImage)->run($uploadedImage);
         $imgName = time() . $uploadedImage->getClientOriginalName();
 
-        $uploadedImage->storePubliclyAs('public/images', $imgName);
+        $uploadedImage->storePubliclyAs('images', $imgName, 'public');
 
         if ($GDimage) {
             $imgResized = imagescale($GDimage, 150);
