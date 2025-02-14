@@ -45,6 +45,7 @@ class AuthController extends Controller
 
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
+
     public function create(array $data)
     {
         return User::create([
@@ -53,6 +54,7 @@ class AuthController extends Controller
             'password' => Hash::make($data['password'])
         ]);
     }
+
     public function dashboard()
     {
         if (Auth::check()) {
@@ -61,6 +63,7 @@ class AuthController extends Controller
 
         return redirect("login")->withSuccess('You are not allowed to access');
     }
+    
     public function logout()
     {
         Session::flush();
