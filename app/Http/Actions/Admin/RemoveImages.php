@@ -9,8 +9,8 @@ class RemoveImages
     public function run(?string $imgName)
     {
         if (!empty($imgName)) {
-            Storage::delete('public/images/' . $imgName);
-            Storage::delete('public/images/thumb/' . $imgName);
+            Storage::disk('public')->delete('images/' . $imgName);
+            Storage::disk('public')->delete('images/thumb/' . $imgName);
         }
     }
 }
