@@ -42,6 +42,10 @@ Generate application key
 ```
 php artisan key:generate
 ```
+To create the symbolic link
+```
+php artisan storage:link
+```
 Launch the built-in server:
 ```
 php artisan serve
